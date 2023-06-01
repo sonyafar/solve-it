@@ -13,13 +13,13 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { HalleyMethodModule } from './pages/halley-method/halley-method.module';
 import { FalsePositionMethodModule } from './pages/false-postion-method/false-postion-method.module';
-import { MathjaxModule } from 'mathjax-angular';
 import { RiddersMethodModule } from './pages/ridders-method/ridders-method.module';
+import { HeaderModule } from './shared/components/header/header.module';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +35,8 @@ import { RiddersMethodModule } from './pages/ridders-method/ridders-method.modul
     FalsePositionMethodModule,
     RiddersMethodModule,
     FooterModule,
-    MathjaxModule.forRoot()
+    HeaderModule,
+    NgxGistModule
   ],
   providers: [],
   bootstrap: [AppComponent]

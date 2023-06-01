@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BsMethodComponent } from './bs-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusBsMethodComponent } from './calculus-bs-method/calculus-bs-method.component';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -17,7 +17,7 @@ import { CalculusBsMethodComponent } from './calculus-bs-method/calculus-bs-meth
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule
+    NgxGistModule
   ],
   exports: [
     BsMethodComponent

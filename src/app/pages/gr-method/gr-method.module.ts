@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { GrMethodComponent } from './gr-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusGrMethodModule } from './calculus-gr-method/calculus-gr-method.module';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -16,8 +16,8 @@ import { CalculusGrMethodModule } from './calculus-gr-method/calculus-gr-method.
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule,
-    CalculusGrMethodModule
+    CalculusGrMethodModule,
+    NgxGistModule
   ],
   exports: [
     GrMethodComponent

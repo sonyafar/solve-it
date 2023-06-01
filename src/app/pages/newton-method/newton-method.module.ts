@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NewtonMethodComponent } from './newton-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusNewtonMethodComponent } from './calculus-newton-method/calculus-newton-method.component';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -17,7 +17,7 @@ import { CalculusNewtonMethodComponent } from './calculus-newton-method/calculus
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule
+    NgxGistModule
   ],
   exports: [
     NewtonMethodComponent

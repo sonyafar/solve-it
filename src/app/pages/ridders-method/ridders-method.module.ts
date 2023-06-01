@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RiddersMethodComponent } from './ridders-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusRiddersMethodModule } from './calculus-ridders-method/calculus-ridders-method.module';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -16,8 +16,8 @@ import { CalculusRiddersMethodModule } from './calculus-ridders-method/calculus-
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule,
-    CalculusRiddersMethodModule
+    CalculusRiddersMethodModule,
+    NgxGistModule
   ],
   exports: [
     RiddersMethodComponent

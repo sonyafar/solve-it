@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BruteForceComponent } from './brute-force.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusBruteForceComponent } from './calculus-brute-force/calculus-brute-force.component';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -17,7 +17,7 @@ import { CalculusBruteForceComponent } from './calculus-brute-force/calculus-bru
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule
+    NgxGistModule
   ],
   exports: [
     BruteForceComponent

@@ -35,15 +35,15 @@ export class CalculusBsMethodComponent implements OnChanges, OnInit {
   } 
   
   loadMathConfig(){
-  
-  this.mathJaxObject  = this.gs.nativeGlobal()['MathJax'] ;
-      this.mathJaxObject.Hub.Config({        
-        showMathMenu: false,
-        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
-        menuSettings: { zoom: "Double-Click",zscale: "150%" },
-        CommonHTML: { linebreaks: { automatic: true } },
-        "HTML-CSS": { linebreaks: { automatic: true } },
-               SVG: { linebreaks: { automatic: true } }
-      });
-    } 
+
+  this.mathJaxObject  = this.gs.nativeGlobal()['MathJax'];
+    this.mathJaxObject.Hub.Config({        
+      showMathMenu: false,
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+      menuSettings: { zoom: "Double-Click",zscale: "150%" },
+      CommonHTML: { linebreaks: { automatic: true } },
+      "HTML-CSS": { linebreaks: { automatic: true } },
+              SVG: { linebreaks: { automatic: true } }
+    });
+  } 
 }

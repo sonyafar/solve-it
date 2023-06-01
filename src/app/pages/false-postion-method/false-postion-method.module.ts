@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FalsePositionMethodComponent } from './false-postion-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusFalsePositionMethodComponent } from './calculus-false-position-method/calculus-false-position-method.component';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -17,7 +17,7 @@ import { CalculusFalsePositionMethodComponent } from './calculus-false-position-
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule
+    NgxGistModule
   ],
   exports: [
     FalsePositionMethodComponent

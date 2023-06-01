@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SecantMethodComponent } from './secant-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
 import { CalculusSecantMethodComponent } from './calculus-secant-method/calculus-secant-method.component';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -17,7 +17,7 @@ import { CalculusSecantMethodComponent } from './calculus-secant-method/calculus
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule
+    NgxGistModule
   ],
   exports: [
     SecantMethodComponent

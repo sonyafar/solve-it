@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HalleyMethodComponent } from './halley-method.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxGgistModule } from 'ngx-ggist';
+import { NgxGistModule } from '@ekkolon/ngx-gist';
 
 
 
@@ -15,7 +15,7 @@ import { NgxGgistModule } from 'ngx-ggist';
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    NgxGgistModule
+    NgxGistModule
   ],
   exports: [
     HalleyMethodComponent
