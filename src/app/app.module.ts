@@ -16,6 +16,7 @@ import { FalsePositionMethodModule } from './pages/false-postion-method/false-po
 import { RiddersMethodModule } from './pages/ridders-method/ridders-method.module';
 import { HeaderModule } from './shared/components/header/header.module';
 import { NgxGistModule } from '@ekkolon/ngx-gist';
+import { MathjaxModule } from 'mathjax-angular';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NgxGistModule } from '@ekkolon/ngx-gist';
     RiddersMethodModule,
     FooterModule,
     HeaderModule,
-    NgxGistModule
+    NgxGistModule,
+    MathjaxModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
