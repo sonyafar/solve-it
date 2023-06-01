@@ -1,0 +1,50 @@
+<div class="article">
+    <p>
+        <a href="https://en.wikipedia.org/wiki/Ridders%27_method" target="_blank">Ridders' method</a> 
+        is a root-finding algorithm based on 
+        the <a href="https://en.wikipedia.org/wiki/Regula_falsi">false position method</a> and 
+        the use of an exponential function to successively approximate a root of a continuous function 
+        <span class="code">f(x)</span>.
+    </p>
+    <p>
+        Given two values of the independent variable, <span class="code">x0</span> and 
+        <span class="code">x2</span>, which are on two different sides of the root being sough,
+        i.e  <span class="code">f(x0)·f(x2)< 0</span>.
+    </p>
+    <p>
+        The method begins by evaluating the function at the midpoint:
+    </p>
+    <div class="equation">
+        <p>{{'$$x_1 = 0.5 \\cdot (x_0 + x_2) $$'}}</p>
+    </div>
+    <p>
+        <a href="https://en.wikipedia.org/wiki/Regula_falsi">The false position method</a> is then applied to the points <span class="code">x0</span>
+        and <span class="code">x2</span> to computing a new value <span class="code">x3</span>:
+    </p>
+    <div class="equation">
+        <p>
+            <span id="mathContent" [innerHTML]="content"></span>
+        </p>
+    </div>
+    <p>
+        which then is used as one of the two bracketing values in the next step of the iteration.
+    </p>
+    <p>
+        Here we have following three different cases:
+    </p>
+    <ol>
+        <li>If <span class="code">f(x3)=0</span> then the root is <span class="code">x3</span>.</li>
+        <li>
+            If <span class="code">f(x1)·f(x3)<0</span> then root lies between <span class="code">x1</span> and <span class="code">x3</span>.
+        </li>
+        <li>
+            If <span class="code">f(x1)·f(x3)>0</span> then the next bracketing value 
+            is whichever of <span class="code">x0</span> and <span class="code">x2</span>
+            is closer to <span class="code">x3</span> and provides the proper bracket.
+        </li>
+    </ol>
+    <p>
+        So that after each iteration we redefine bracketing values and 
+        repeat the calculation process until we find the root within desired accuracy.
+    </p>
+</div>

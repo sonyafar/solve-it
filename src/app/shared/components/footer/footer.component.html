@@ -1,0 +1,22 @@
+<div class="footer" (clickOutside)="hidePopup()">
+    <a href="https://github.com/sonyafar/solve-it" target="_blank">Code on&nbsp;<span style="font-weight: 600;">Github</span></a>
+    <button style="margin-left: 40px;" (click)="showPopup()">About</button>
+</div>
+
+<div #popup class="overlay">
+    <div class="popup">
+        <h2>About</h2>
+        <a class="close" (click)="hidePopup()">&times;</a>
+        <div class="content">
+            <p>
+                <a>Solve it.</a> is simple and reliable tool to calculate various mathematical problem online.
+            </p>
+            <div style="height: 30px;"></div>
+            <p>
+                The following plugins and libraries were used during development: 
+                <a class="code" href="https://mathjs.org/index.html">mathjs</a>,
+                <a class="code" href="https://github.com/hausen/math.diff.js" target="_blank">math.diff.js</a>.
+            </p>
+        </div>
+    </div>
+</div>

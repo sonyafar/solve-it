@@ -1,0 +1,199 @@
+<title>Solve it :: False Position Method calculator</title>
+<div class="content-wrapper">
+    <div class="title">
+        <h1>False Position Method</h1>
+        <div style="height: 30px;"></div>
+        <p>
+            Online tool to find real root of nonlinear equation quickly using False Position method.
+        </p>
+    </div>
+    <div class="calculator article">
+        <div class="article-title">
+            <h3 (click)="goToSection('calculator')" id="calculator">
+                <span class="anchor">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z"/></svg>
+                </span>
+                Calculator
+            </h3>
+            <div class="action-field">
+                <button class="clean" (click)="clean()">
+                    <fa-icon [icon]="faArrowRotateForward" class="fa-xl"></fa-icon>
+                </button>
+                <button (click)="calculate()">
+                    <fa-icon [icon]="faPlay" class="fa-xl"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <div class="input-form">
+            <form #inputForm="ngForm" novalidate>
+                <input type="text" #eq="ngModel" class="function-input"
+                    placeholder="Enter function f(x)..."
+                    id="eq" 
+                    name="eq" 
+                    [class.invalid-input]="isDataSubmit && eq.invalid"
+                    [(ngModel)]="input.equation" 
+                    required>
+                <div class="method-params">
+                    <div class="field-group">
+                        <label class="offset-label" for="x0">Guess 1 (x0)</label>
+                        <input type="number" #x0="ngModel" #spy
+                            placeholder="Enter x0..."
+                            id="x0"
+                            name="x0" 
+                            [class.invalid-input]="isDataSubmit && x0.invalid"
+                            [(ngModel)]="input.startPoint"
+                            required>
+                        <div class="alert" [hidden]="!isDataSubmit || x0.valid" *ngIf="isDataSubmit && x0.invalid">
+                            <div class="warning-icon">
+                                <img src="/assets/svg/sm-warning-icon.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="offset-label" for="x1">Guess 2 (x1)</label>
+                        <input type="number" #x1="ngModel" #spy
+                            placeholder="Enter x1..."
+                            id="x1"
+                            name="x1" 
+                            [class.invalid-input]="isDataSubmit && x1.invalid"
+                            [(ngModel)]="input.endPoint"
+                            required>
+                        <div class="alert" [hidden]="!isDataSubmit || x1.valid" *ngIf="isDataSubmit && x1.invalid">
+                            <div class="warning-icon">
+                                <img src="/assets/svg/sm-warning-icon.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="offset-label" for="error">Error (e)</label>
+                        <input type="number" #error="ngModel" #spy
+                            placeholder="Enter error..."
+                            id="error"
+                            name="error" 
+                            [class.invalid-input]="isDataSubmit && error.invalid"
+                            [(ngModel)]="input.error"
+                            min="0.00000000001"
+                            required>
+                        <div class="alert" [hidden]="!isDataSubmit || error.valid" *ngIf="isDataSubmit && error.invalid">
+                            <div class="warning-icon">
+                                <img src="/assets/svg/sm-warning-icon.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="warning" *ngIf="isWarningShown && inputForm.valid">
+            <h4>Please correct the following error(s):</h4>
+            <p>{{warning}}</p>
+        </div>
+        <div *ngIf="!isWarningShown">
+            <div class="result" *ngIf="inputForm.valid && root != undefined">
+                <h4>Root is: {{root}}</h4>
+            </div>
+            <div class="table-wrapper" *ngIf="inputForm.valid && root != undefined">
+                <table class="result-table">
+                    <tr>
+                        <th>Step</th>
+                        <th>x0</th>
+                        <th>x1</th>
+                        <th>x2</th>
+                        <th>f(x2)</th>
+                    </tr>
+                    <tr *ngFor="let res of result">
+                        <td>
+                            <span>{{res.index}}</span>
+                        </td>
+                        <td>
+                            <span>{{res.x0}}</span>
+                        </td>
+                        <td>
+                            <span>{{res.x1}}</span>
+                        </td>
+                        <td>
+                            <span>{{res.x2}}</span>
+                        </td>
+                        <td>
+                            <span>{{res.f_x2}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="theory article">
+        <div class="article-title">
+            <h3 (click)="goToSection('theory')" id="theory">
+                <span class="anchor">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z"/></svg>
+                </span>
+                Calculus
+            </h3>
+        </div>
+        <app-calculus-false-position></app-calculus-false-position>
+    </div>
+    <div class="algorithm article" style="margin-bottom: 40px;">
+        <div class="article-title">
+            <h3 (click)="goToSection('algorithm')" id="algorithm">
+                <span class="anchor">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z"/></svg>
+                </span>
+                Source code
+            </h3>
+        </div>
+        <p>
+            This program implements False Position Method for solving non-linear equation numerically
+            in C# programming language.
+        </p>
+        <p>
+            In this program, <span class="code">x0</span> and <span class="code">x1</span> are 
+            two initial guesses, 
+            <span class="code">error</span> is tolerable error.
+            <span class="code">Function(x)</span> is actual non-linear function which is 
+            continuous on <span class="code">[x0, x1]</span>. 
+            Variable <span class="code">x2</span> holds approximated root in each step, 
+            <span class="code">maxSteps</span> &ndash;  maximum number of iterations.
+        </p>
+        <div style="height: 5px;"></div>
+        <ngx-ggist user="sonyafar" scriptId="c637c1ec3225fee455cdde2486bc1c77" height="730px" width="100%"></ngx-ggist>
+    </div>
+    <div class="references article">
+        <div class="article-title">
+            <h3 (click)="goToSection('references')" id="references">
+                <span class="anchor">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z"/></svg>
+                </span>
+                References
+            </h3>
+        </div>
+        <ul class="reference-list">
+            <li>
+                <a href="https://mathworld.wolfram.com/MethodofFalsePosition.html" target="_blank">Method of False Position &mdash; Wolfram</a>
+            </li>
+            <li>
+                <a href="https://mathjs.org/docs/expressions/syntax.html" target="_blank">Expression syntax &mdash; Math.js</a>
+            </li>
+            <li>
+                <a href="https://en.wikipedia.org/wiki/Root-finding_algorithms" target="_blank">Root-finding algorithms &mdash; Wikipedia</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<ng-template #customTemplate>
+    <div class="code-snippet">
+        <p>Since the intrument uses an approximating function, the use 
+            of the calculation 
+            <span class="underlined">
+                results should be used only in the initial stages of the design
+            </span>.
+        </p>
+    </div>
+</ng-template>

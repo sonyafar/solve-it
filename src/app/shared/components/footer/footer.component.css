@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer a {
+    display: inline-flex;
+    font-size: 15px;
+    color: #3e3e3e;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+}
+
+.footer span {
+    display: inline;
+}
+
+.footer button {
+    display: inline-flex;
+    font-size: 15px;
+    color: #3e3e3e;
+    letter-spacing: 0.05em;
+    border: none;
+    background-color: transparent;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+}
+
+.overlay.active {
+    visibility: visible;
+}
+
+.popup {
+    margin: 180px auto;
+    padding: 35px;
+    background: #fff;
+    border-radius: 5px;
+    width: 600px;
+    height: max-content;
+    position: relative;
+}
+
+
+@media (max-width: 576px) {
+    .popup {
+        width: 95%;
+        height: auto;
+    }
+}
+
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.popup .close:hover {
+    color: rgb(143, 100, 211);
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
+
+.popup .content a {
+    color: rgb(143, 100, 211);
+    font-weight: 600;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.popup .content p {
+    line-height: 1.8rem;
+}
+
+.popup .content .code {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: #f0f0f0e7;
+    border-radius: 8px;
+    padding: 3px 5px;
+    font-weight: 500;
+}

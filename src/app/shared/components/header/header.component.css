@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header-wrapper {
+    padding: 50px 0px;
+    max-width: 840px;
+
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo h2 {
+    color: rgb(41, 41, 41);
+    font-size: 24px;
+    font-weight: 700;
+    width: max-content;
+    /* width: 100px; */
+}
+
+.selector h3 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+
+.css-1eiyqb2 {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0vh;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #fff59d;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+.category-selector {
+
+}
+
+
+.dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.select {
+    display: flex;
+    justify-content: right;
+    /* padding: 10px 15px; */
+    width: 200px;
+    border-radius: 6px;
+}
+
+.select span {
+    margin: 0 !important;
+}
+
+.selected {
+    font-weight: 400;
+    font-size: 20px;
+    color: rgb(41, 41, 41);
+}
+
+
+@media (max-width: 576px) {
+    .dropdown {
+        margin-top: 20px;
+    }
+
+    .select {
+        justify-content: center;
+    }
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+
+    transition: 0.3s;
+}
+
+.caret-rotate:hover {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background-color: #f8f8f8;
+    border: 1px solid rgb(186, 186, 186)4;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+
+    color: #959595;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 200px;
+    transform: translate(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu.opened {
+    display: block;
+    opacity: 1;
+}
+
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+    text-align: right;
+}
+
+.menu li:hover {
+    color: #5189bb;
+}
+
+
+@media (max-width: 576px) {
+    .menu li {
+        text-align: center;
+    }
+}

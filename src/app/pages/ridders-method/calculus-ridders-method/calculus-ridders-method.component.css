@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.article {
+    margin-bottom: 0px !important;
+}
+
+p, a {
+    line-height: 2rem;
+    font-size: 19px;
+    color: rgb(60, 60, 60);
+
+    margin-bottom: 15px;
+}
+
+ol {
+    padding-left: 60px;
+    margin-bottom: 15px;
+}
+
+ol li {
+    padding: 10px;
+    font-size: 19px;
+    line-height: 2rem;
+}
