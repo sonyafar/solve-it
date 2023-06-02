@@ -26,7 +26,7 @@
     "chart.js": "^4.3.0",
     "iframe-resizer": "^4.3.6",
     "math-diff": "^1.0.2",
-    "mathjax-angular": "^2.1.1",
+    "mathjax": "^3.2.2",
     "mathjs": "^11.8.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

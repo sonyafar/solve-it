@@ -15,14 +15,14 @@ export class CalculusFalsePositionMethodComponent implements OnChanges, OnInit {
   constructor(private gs:GlobalService) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['content']) {
-      this.renderMath()
-    }
+    // if (changes['content']) {
+    //   this.renderMath()
+    // }
   }
 
   ngOnInit(): void {
-    this.loadMathConfig()
-    this.renderMath();
+    // this.loadMathConfig()
+    // this.renderMath();
   }
 
   renderMath(){

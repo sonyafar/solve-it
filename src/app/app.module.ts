@@ -9,14 +9,12 @@ import { GrMethodModule } from './pages/gr-method/gr-method.module';
 import { NewtonMethodModule } from './pages/newton-method/newton-method.module';
 import { HomeModule } from './pages/home/home.module';
 import { BruteForceModule } from './pages/brute-force/brute-force.module';
-import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { HalleyMethodModule } from './pages/halley-method/halley-method.module';
 import { FalsePositionMethodModule } from './pages/false-postion-method/false-postion-method.module';
 import { RiddersMethodModule } from './pages/ridders-method/ridders-method.module';
 import { HeaderModule } from './shared/components/header/header.module';
 import { NgxGistModule } from '@ekkolon/ngx-gist';
-import { MathjaxModule } from 'mathjax-angular';
 
 @NgModule({
   declarations: [
@@ -37,8 +35,7 @@ import { MathjaxModule } from 'mathjax-angular';
     RiddersMethodModule,
     FooterModule,
     HeaderModule,
-    NgxGistModule,
-    MathjaxModule.forRoot()
+    NgxGistModule
   ],
   providers: [],
   bootstrap: [AppComponent]
