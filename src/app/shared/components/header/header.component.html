@@ -1,6 +1,9 @@
-<div class="header-sticker"></div>
-<div class="header-wrapper">
-    <a class="logo" [routerLink]="['/home']">
-        🤖 Solve it.
-    </a>
+
+<div class="header-outer" id="header" [ngClass]="scrolled ? 'active' : ''">
+    <div class="header-sticker"></div>
+    <div class="header-inner">
+        <a class="logo" [routerLink]="['/home']">
+            🤖 Solve it.
+        </a>
+    </div>
 </div>

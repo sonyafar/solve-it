@@ -1,7 +1,7 @@
+<header>
+  <app-header [selectorVisible]="selectorVisible"></app-header>
+</header>
 <body>
-  <header>
-    <app-header [selectorVisible]="selectorVisible"></app-header>
-  </header>
   <main (scroll)="onScroll($event)">
       <router-outlet></router-outlet>
   </main>

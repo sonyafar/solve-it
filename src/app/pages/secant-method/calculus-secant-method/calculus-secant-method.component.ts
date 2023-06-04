@@ -5,7 +5,7 @@ import { GlobalService } from 'src/app/shared/services/global.service';
   selector: 'app-calculus-secant-method',
   templateUrl: './calculus-secant-method.component.html',
   styleUrls: ['./calculus-secant-method.component.css'],
-  providers: [ GlobalService ]
+  providers: [ GlobalService]
 })
 export class CalculusSecantMethodComponent implements OnChanges, OnInit {
 
@@ -14,36 +14,7 @@ export class CalculusSecantMethodComponent implements OnChanges, OnInit {
 
   constructor(private gs:GlobalService) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    // if (changes['content']) {
-    //   this.renderMath()
-    // }
-  }
+  ngOnChanges(changes: SimpleChanges) {}
 
-  ngOnInit(): void {
-    // this.loadMathConfig()
-    // this.renderMath();
-  }
-
-  renderMath(){
-    this.mathJaxObject  = this.gs.nativeGlobal()['MathJax'] ;
-    let angObj = this;
-
-    setTimeout(()=> {
-      angObj.mathJaxObject.Hub.Queue(["Typeset",angObj.mathJaxObject.Hub],'mathContent');
-    },1000);
-  } 
-  
-  loadMathConfig(){
-  
-  this.mathJaxObject  = this.gs.nativeGlobal()['MathJax'] ;
-      this.mathJaxObject.Hub.Config({        
-        showMathMenu: false,
-        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
-        menuSettings: { zoom: "Double-Click",zscale: "150%" },
-        CommonHTML: { linebreaks: { automatic: true } },
-        "HTML-CSS": { linebreaks: { automatic: true } },
-               SVG: { linebreaks: { automatic: true } }
-      });
-    } 
+  ngOnInit() {}
 }
